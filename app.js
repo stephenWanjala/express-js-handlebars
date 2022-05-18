@@ -5,8 +5,20 @@ const mysql=require('mysql')
 const app=express()
 
 require('dotenv').config()
-
 const PORT=process.env.PORT||5000
+
+// body parser  middleware
+// url encoded
+app.use(bodyParser.urlencoded({extended:false}))
+
+// parse app-json
+app.use(bodyParser.json())
+
+
+
+
+
+
 
 
 app.listen(PORT,
