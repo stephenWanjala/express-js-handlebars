@@ -1,7 +1,8 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser');
-const mysql = require('mysql')
+const mysql = require('mysql');
+const Connection = require('mysql/lib/Connection');
 const app = express()
 
 require('dotenv').config()
@@ -38,7 +39,13 @@ const pool = mysql.createPool({
     password: process.env.databasePassword
 })
 
+pool.getConnection((err,Connection)=>{
+    if(err)    throw err
+        // not connected
 
+        console.log(`connected with id ${Connection.threadId}`)
+    
+})
 
 
 
