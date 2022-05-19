@@ -40,10 +40,8 @@ const pool = mysql.createPool({
 })
 
 pool.getConnection((err,Connection)=>{
-    if(err)    throw err
-        // not connected
-
-        console.log(`connected with id ${Connection.threadId}`)
+    if(err)    throw err   // not connected
+    console.log(`connected with id ${Connection.threadId}`)
     
 })
 

@@ -10,12 +10,13 @@
     </tr>
   </thead>
   <tbody>
+    {{#each rows}}
     <tr>
-      <th scope="row">1</th>
-      <td>Mark </td>
-      <td>Otto</td>
-      <td>oto@mdo</td>
-      <td>o000282</td>
+      <th scope="row">{{this.id}}</th>
+      <td>{{this.first_name}} </td>
+      <td>{{this.last_name}}</td>
+      <td>{{this.phone}}</td>
+      <td>{{this.email}}</td>
       <td class="text-end">
           <a href="#" type="button" class="btn btn-light btn-small"><i class="bi bi-eye"></i>View</a>
       <a href="#" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil"></i>Edit</a>
@@ -23,5 +24,7 @@
       </td>
     </tr>
     
+      
+    {{/each}}
   </tbody>
 </table>
