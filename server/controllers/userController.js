@@ -22,10 +22,29 @@ exports.view=(req,res)=>{
         connection.query(` SELECT * from ${process.env.databaseName}.user`,(err,rows)=>{
             if(!err){
                 res.render('home',{rows})
-                console.log(`data returned ${rows}`)
+                console.log(`data returned ${rows.toString()}`)
             } else{
                console.log("There is an error",err)
             }
-        })
-    })
+         })
+    })  
+}
+
+exports.find=(req,res)=>{
+    pool.getConnection((err,connection)=>{
+        if(err) throw err 
+        console.log('connected with-> ',connection.threadId)
+
+        // user connection
+        let searchTerm=req.body.search
+
+        connection.query(`select * from ${process.env.databaseName}.user where first_name like ? `,['%'+ searchTerm+'%'],(err,rows)=>{
+            if(!err){
+                res.render('home',{rows})
+                console.log(`data returned ${rows.toString()}`)
+            } else{
+               console.log("There is an error",err)
+            }
+         })
+    }) 
 }
