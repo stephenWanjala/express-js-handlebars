@@ -27,8 +27,8 @@ app.engine('handlebars', exphbs.engine({
 // app.engine('hbs',exphbs.engine({extname: '.hbs'}))
 app.set('view engine', 'handlebars')
 // home page route
-app.get('', (req, res) => res.render(('home')))
-// route
+const routes=require('./server/routes/user')
+app.use('/',routes)
 
 
 // connection pool
