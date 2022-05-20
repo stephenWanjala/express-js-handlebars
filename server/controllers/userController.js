@@ -1,5 +1,6 @@
 
 
+const res = require('express/lib/response');
 const mysql = require('mysql');
 // connection pool
 const pool = mysql.createPool({
@@ -49,8 +50,31 @@ exports.find=(req,res)=>{
     }) 
 }
 
-// add new user
-
+// display form
 exports.form=(req,res)=>{
     res.render('addUser')
+}
+
+// add new user
+
+exports.create=(req,res)=>{
+    const {first_name,last_name,email,phone,comments}=req.body
+    
+    pool.getConnection((err,connection)=>{
+        if(err) throw err 
+        console.log('connected with-> ',connection.threadId)
+
+        // user connection
+        let searchTerm=req.body.search
+
+        connection.query(`insert  into ${process.env.databaseName}.user set first_name=?,last_name=?,
+         email=?,phone=?, comments=?`,[first_name,last_name,email,phone,comments],(err,rows)=>{
+            if(!err){
+                res.render('addUser')
+                console.log(`add User data returned ${rows}`)
+            } else{
+               console.log("There is an error",err)
+            }
+         })
+    })
 }

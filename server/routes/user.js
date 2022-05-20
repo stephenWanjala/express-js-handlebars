@@ -6,6 +6,7 @@ router.get('/',userController.view)
 
 router.post('/',userController.find)
 router.get('/addUser',userController.form)
+router.post('/addUser',userController.create)
 
 // router.get('', (req, res) => res.render(('home')))
 // route
