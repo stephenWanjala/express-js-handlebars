@@ -70,7 +70,7 @@ exports.create=(req,res)=>{
         connection.query(`insert  into ${process.env.databaseName}.user set first_name=?,last_name=?,
          email=?,phone=?, comments=?`,[first_name,last_name,email,phone,comments],(err,rows)=>{
             if(!err){
-                res.render('addUser')
+                res.render('addUser',{alert:`user  added succefuly`})
                 console.log(`add User data returned ${rows}`)
             } else{
                console.log("There is an error",err)
