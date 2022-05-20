@@ -1,11 +1,14 @@
-<div class="row">
-<div class="col-6" ><h1>Users</h1></div>
-<div class="col-6 ">
-  <a href="/addUser" type="button" class="btn btn-primary btn-outlned ">+ Add new User</a>
+<div class="container">
+  <div class="d-flex ">
+<div class="col" ><h1>Users</h1></div>
+<div class="col align-right">
+  <a href="/addUser" 
+    type="button" class="btn btn-outline-primary float-end">+ Add new User</a>
 </div>
 
 </div>
 
+</div>
 <table class="table table-bordered">
   <thead class="thead-dark">
     <tr>
@@ -23,8 +26,8 @@
       <th scope="row">{{this.id}}</th>
       <td>{{this.first_name}} </td>
       <td>{{this.last_name}}</td>
-      <td>{{this.phone}}</td>
       <td>{{this.email}}</td>
+      <td>{{this.phone}}</td>
       <td class="text-end">
           <a href="#" type="button" class="btn btn-light btn-small"><i class="bi bi-eye"></i>View</a>
       <a href="#" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil"></i>Edit</a>
