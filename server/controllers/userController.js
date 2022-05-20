@@ -41,7 +41,7 @@ exports.find=(req,res)=>{
         connection.query(`select * from ${process.env.databaseName}.user where first_name like ? `,['%'+ searchTerm+'%'],(err,rows)=>{
             if(!err){
                 res.render('home',{rows})
-                console.log(`data returned ${rows.toString()}`)
+                console.log(`data returned ${rows}`)
             } else{
                console.log("There is an error",err)
             }
