@@ -78,3 +78,7 @@ exports.create=(req,res)=>{
          })
     })
 }
+
+exports.editUser=(req,res)=>{
+    res.render('editUser')
+}

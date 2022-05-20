@@ -1,7 +1,8 @@
+
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">New User</li>
+    <li class="breadcrumb-item active" aria-current="page">Edit User</li>
   </ol>
 </nav>
 {{#if alert}} 
@@ -10,6 +11,6 @@
    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 {{/if}}
-<form action="/addUser" method="post" class="row g-3 needs-validate">
+<form action="/editUser" method="post" class="row g-3 needs-validate">
 {{> userForm}}
 </form>
