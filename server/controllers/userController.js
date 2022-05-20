@@ -48,3 +48,9 @@ exports.find=(req,res)=>{
          })
     }) 
 }
+
+// add new user
+
+exports.form=(req,res)=>{
+    res.render('addUser')
+}
